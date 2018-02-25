@@ -1,22 +1,19 @@
 
-//
-//--------------------------------------------------------------------
-
-
 #include <Joystick.h>
 
 // Variable
 
 int gas = A0;
-
 int gasValue = 0;
 int gasValuebyte = 0;
+int knapp = 13;
 
 
 
 // init joystick libary
 void setup() {
   Joystick.begin();
+ pinMode(knapp, INPUT); 
 }
 
 void loop() {
@@ -32,6 +29,8 @@ void loop() {
    }
   Joystick.setThrottle(gasValuebyte);
   delay(1); 
-}
 
- 
+ int buttonState = digitalRead(knapp);
+  Serial.println(buttonState);
+  delay(1);
+}
